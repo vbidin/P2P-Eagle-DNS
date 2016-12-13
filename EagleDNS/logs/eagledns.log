@@ -1,0 +1,940 @@
+[FATAL] [2016-12-11] [19:39:27] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:39:27] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:39:27] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:39:29] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:39:29] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:39:31] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[FATAL] [2016-12-11] [19:39:31] EagleDNS.<init> No zones found, aborting startup! (disable the /Config/System/RequireZones property in configuration file if you wish to proceed without any zones or zone provider)
+[FATAL] [2016-12-11] [19:41:01] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:41:01] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:41:01] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:41:04] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:41:04] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:41:06] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [19:41:06] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:41:06] QueryStatsPlugin.init Plugin Query statistics found no previously saved statistics,, creating new file on first save
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:41:06] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-11] [19:41:06] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-11] [19:41:06] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-11] [19:41:06] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-11] [19:41:06] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[FATAL] [2016-12-11] [19:42:32] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:42:32] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:42:32] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:42:34] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:42:34] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:42:36] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:42:36] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [19:42:36] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[ERROR] [2016-12-11] [19:42:36] EagleDNS.<init> Error initializing plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin)
+java.rmi.server.ExportException: Port already in use: 5353; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:383)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:320)
+	at se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin.init(RMIRemoteManagementPlugin.java:46)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:623)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 9 more
+[INFO] [2016-12-11] [19:42:36] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-11] [19:42:36] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[ERROR] [2016-12-11] [19:42:36] EagleDNS.<init> Error initializing plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin)
+java.rmi.server.ExportException: Port already in use: 5000; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:383)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:320)
+	at se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin.init(ReplicationServerPlugin.java:82)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:623)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 9 more
+[INFO] [2016-12-11] [19:42:36] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [19:42:36] EagleDNS.<init> Initializing UDP thread pool...
+[ERROR] [2016-12-11] [19:42:36] EagleDNS.<init> Unable to open UDP server socket on address /0.0.0.0:53, java.net.BindException: Address already in use: Cannot bind
+[ERROR] [2016-12-11] [19:42:36] EagleDNS.<init> Unable to open TCP server socket on address /0.0.0.0:53, java.net.BindException: Address already in use: JVM_Bind
+[FATAL] [2016-12-11] [19:42:36] EagleDNS.<init> Not bound on any sockets, aborting startup!
+[FATAL] [2016-12-11] [19:43:25] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:43:25] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:43:25] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:43:27] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:43:27] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:43:29] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:43:29] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [19:43:29] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[ERROR] [2016-12-11] [19:43:29] EagleDNS.<init> Error initializing plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin)
+java.rmi.server.ExportException: Port already in use: 5353; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:383)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:320)
+	at se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin.init(RMIRemoteManagementPlugin.java:46)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:623)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 9 more
+[INFO] [2016-12-11] [19:43:29] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-11] [19:43:29] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[ERROR] [2016-12-11] [19:43:29] EagleDNS.<init> Error initializing plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin)
+java.rmi.server.ExportException: Port already in use: 5000; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:212)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:383)
+	at java.rmi.server.UnicastRemoteObject.exportObject(UnicastRemoteObject.java:320)
+	at se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin.init(ReplicationServerPlugin.java:82)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:623)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 9 more
+[INFO] [2016-12-11] [19:43:29] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [19:43:29] EagleDNS.<init> Initializing UDP thread pool...
+[ERROR] [2016-12-11] [19:43:29] EagleDNS.<init> Unable to open UDP server socket on address /0.0.0.0:53, java.net.BindException: Address already in use: Cannot bind
+[ERROR] [2016-12-11] [19:43:29] EagleDNS.<init> Unable to open TCP server socket on address /0.0.0.0:53, java.net.BindException: Address already in use: JVM_Bind
+[FATAL] [2016-12-11] [19:43:29] EagleDNS.<init> Not bound on any sockets, aborting startup!
+[FATAL] [2016-12-11] [19:44:30] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:44:30] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:44:30] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:44:32] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:44:32] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:44:34] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [19:44:34] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:44:34] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:44:34] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-11] [19:44:34] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-11] [19:44:34] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-11] [19:44:34] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-11] [19:44:34] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[FATAL] [2016-12-11] [19:45:13] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [19:45:13] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [19:45:13] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:45:15] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:45:15] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [19:45:17] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [19:45:17] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:45:17] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:45:17] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-11] [19:45:17] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-11] [19:45:17] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-11] [19:45:17] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-11] [19:45:17] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[FATAL] [2016-12-11] [20:23:25] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-11] [20:23:25] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-11] [20:23:25] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [20:23:27] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [20:23:27] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-11] [20:23:29] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-11] [20:23:29] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-11] [20:23:29] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-11] [20:23:29] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-11] [20:23:29] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-11] [20:23:29] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-11] [20:23:29] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[INFO] [2016-12-11] [20:23:29] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-12] [02:20:05] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-12] [02:20:05] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-12] [02:20:05] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-12] [02:20:07] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-12] [02:20:07] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-12] [02:20:09] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-12] [02:20:09] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-12] [02:20:09] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file D:\FER\RASSUS\LAB\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-12] [02:20:09] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-12] [02:20:09] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-12] [02:20:09] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-12] [02:20:09] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[INFO] [2016-12-12] [02:20:09] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
