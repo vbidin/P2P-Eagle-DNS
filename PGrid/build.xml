@@ -1,0 +1,111 @@
+<project name="P-Grid" default="jar" basedir=".">
+
+	<description>P-Grid ant build file</description>
+
+	<!-- set global properties for this build -->
+	<property name="bin" location="bin"/>
+	<property name="classes" location="classes"/>
+	<property name="docs" location="docs"/>
+	<property name="jarfile" value="p-grid.jar"/>
+	<property name="javadoc" location="${docs}/api"/>
+	<property name="lib" location="lib"/>
+	<property name="licenses" location="licenses"/>
+	<property name="release" location="release"/>
+	<property name="resources" location="resources"/>
+	<property name="src" location="src"/>
+	<property name="version" value="v2.0a2"/>
+
+	<path id="class.path">
+		<pathelement location="${lib}/getopt.jar"/>
+		<pathelement location="${lib}/hsqldb.jar"/>
+	</path>
+
+	<target name="compile" description="compile the source">
+		<tstamp/>
+		<mkdir dir="${classes}"/>
+		<!-- Compile the java code from ${src} into ${classes} -->
+		<javac srcdir="${src}" destdir="${classes}" debug="on" optimize="off" target="1.4" source="1.4">
+			<classpath refid="class.path"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile" description="generate the jar archive">
+		<!-- Put everything in ${classes} into the ${jarfile} file -->
+		<jar destfile="${jarfile}">
+			<fileset dir="${resources}" includes="antilogTable.dat"/>
+			<fileset dir="${resources}" includes="logTable.dat"/>
+			<fileset dir="${resources}" includes="P-Grid.ddl"/>
+			<fileset dir="${resources}" includes="PGridTree.dat"/>
+			<fileset dir="${resources}" includes="PGridTree.ini"/>
+			<fileset dir="${classes}" includes="p2p/**"/>
+			<fileset dir="${classes}" includes="pgrid/**"/>
+			<fileset dir="${classes}" includes="test/**" excludes="test/planetlab/**"/>
+			<manifest>
+				<attribute name="Main-Class" value="pgrid.PGridServer"/>
+				<attribute name="Created-By" value="${TODAY} (${user.name})"/>
+				<attribute name="Class-Path" value="lib/getopt.jar lib/hsqldb.jar"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="javadoc" description="generate the JavaDoc">
+		<mkdir dir="${javadoc}"/>
+		<!-- Create the JavaDoc -->
+		<javadoc packagenames="p2p.*,pgrid.*,test.*" excludepackagenames="test.planetlab" sourcepath="${src}" destdir="${javadoc}"	use="true" splitindex="true"	windowtitle="P-Grid ${version} API Specification">
+			<classpath refid="class.path"/>
+			<doctitle>P-Grid ${version} API Specification</doctitle>
+			<header>P-Grid ${version} API Specification</header>
+			<bottom>This is open source software distributed under the terms of the GNU General Public License, a copy of which is included in the file LICENSE. If not you can find the GPL at http://www.gnu.org/copyleft/gpl.txt</bottom>
+			<link offline="false" href="http://java.sun.com/j2se/1.4/docs/api/"/> <!-- packagelistLoc="C:/Program Files/j2sdk1.4.2_01/docs/api" -->
+		</javadoc>
+	</target>
+
+	<target name="exec" depends="jar" description="generate the executable distribution">
+		<mkdir dir="${release}"/>
+		<delete file="${release}/P-Grid_${version}.zip"/>
+		<zip zipfile="${release}/P-Grid_${version}.zip">
+			<zipfileset prefix="P-Grid" dir="${bin}" includes="${jarfile}"/>
+			<zipfileset prefix="P-Grid" dir="${bin}" includes="*.bat *.sh"/>
+			<zipfileset prefix="P-Grid/lib" dir="${lib}" includes="*"/>
+			<zipfileset prefix="P-Grid/licenses" dir="${licenses}" includes="*"/>
+		</zip>
+	</target>
+
+	<target name="dist" depends="javadoc" description="generate the source distribution">
+		<mkdir dir="${release}"/>
+		<delete file="${release}/P-Grid_src_${version}.zip"/>
+		<zip zipfile="${release}/P-Grid_src_${version}.zip">
+			<zipfileset prefix="P-Grid" dir="." includes="build.xml"/>
+			<zipfileset prefix="P-Grid" dir="${bin}" includes="*.bat *.sh"/>
+			<zipfileset prefix="P-Grid/docs" dir="${docs}" includes="**"/>
+			<zipfileset prefix="P-Grid/lib" dir="${lib}" includes="*"/>
+			<zipfileset prefix="P-Grid/licenses" dir="${licenses}" includes="*"/>
+			<zipfileset prefix="P-Grid/resources" dir="${resources}" includes="antilogTable.dat logTable.dat P-Grid.ddl PGridTree.dat PGridTree.ini"/>
+			<zipfileset prefix="P-Grid/src" dir="${src}" includes="**" excludes="test/planetlab/**"/>
+		</zip>
+	</target>
+
+	<target name="dist_no_docs" description="generate the source distribution without the java doc">
+		<mkdir dir="${release}"/>
+		<delete file="${release}/P-Grid_src_no_docs_${version}.zip"/>
+		<zip zipfile="${release}/P-Grid_src_no_docs_${version}.zip">
+			<zipfileset prefix="P-Grid" dir="." includes="build.xml"/>
+			<zipfileset prefix="P-Grid/bin" dir="${bin}" includes="*.bat *.sh"/>
+			<zipfileset prefix="P-Grid/lib" dir="${lib}" includes="*"/>
+			<zipfileset prefix="P-Grid/licenses" dir="${licenses}" includes="*"/>
+			<zipfileset prefix="P-Grid/resources" dir="${resources}" includes="antilogTable.dat logTable.dat P-Grid.ddl PGridTree.dat PGridTree.ini"/>
+			<zipfileset prefix="P-Grid/src" dir="${src}" includes="**" excludes="test/planetlab/**"/> -->
+		</zip>
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${bin} directory trees -->
+		<delete includeemptydirs="true">
+			<fileset dir="${classes}" includes="**"/>
+			<fileset file="${bin}/${jarfile}"/>
+			<fileset dir="${javadoc}" includes="**"/>
+			<fileset dir="${release}" includes="**"/>
+		</delete>
+	</target>
+
+</project>
