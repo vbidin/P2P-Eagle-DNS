@@ -938,3 +938,229 @@ Caused by: java.net.ConnectException: Connection refused: connect
 [INFO] [2016-12-12] [02:20:09] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
 [FATAL] [2016-12-12] [02:20:09] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
 [INFO] [2016-12-12] [02:20:09] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-14] [18:21:55] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-14] [18:21:57] EagleDNS.<init> Zone provider Default DB zone provider (se.unlogic.eagledns.zoneproviders.db.DBZoneProvider) successfully initialized!
+[INFO] [2016-12-14] [18:21:57] EagleDNS.reloadZones Getting primary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-14] [18:22:00] DBZoneProvider.getPrimaryZones Error getting primary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getPrimaryZones(DBZoneProvider.java:94)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-14] [18:22:00] EagleDNS.reloadZones Getting secondary zones from zone provider Default DB zone provider
+[ERROR] [2016-12-14] [18:22:02] DBZoneProvider.getSecondaryZones Error getting secondary zones from DB zone provider Default DB zone provider
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1118)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:343)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2308)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2122)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:774)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:409)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:375)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:289)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at se.unlogic.standardutils.dao.SimpleDataSource.getConnection(SimpleDataSource.java:38)
+	at se.unlogic.standardutils.dao.AnnotatedDAO.getAll(AnnotatedDAO.java:1955)
+	at se.unlogic.eagledns.zoneproviders.db.DBZoneProvider.getSecondaryZones(DBZoneProvider.java:125)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:828)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:292)
+	... 19 more
+[INFO] [2016-12-14] [18:22:02] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-14] [18:22:02] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:22:04] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file C:\Users\bbelaj\git\P2P-Eagle-DNS\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:22:04] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-14] [18:22:04] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-14] [18:22:04] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-14] [18:22:04] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-14] [18:22:04] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[INFO] [2016-12-14] [18:27:51] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:64390
+[INFO] [2016-12-14] [18:27:51] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:27:51] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:64391
+[INFO] [2016-12-14] [18:27:51] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:27:51] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:64392
+[INFO] [2016-12-14] [18:27:51] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:27:51] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:64393
+[INFO] [2016-12-14] [18:27:51] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:27:51] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:64394
+[INFO] [2016-12-14] [18:27:51] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:29:23] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:59273
+[INFO] [2016-12-14] [18:29:23] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:29:23] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:59274
+[INFO] [2016-12-14] [18:29:23] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:29:23] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:59275
+[INFO] [2016-12-14] [18:29:23] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:29:23] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:59276
+[INFO] [2016-12-14] [18:29:23] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:29:23] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:59277
+[INFO] [2016-12-14] [18:29:23] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:31] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:51114
+[INFO] [2016-12-14] [18:30:31] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:31] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:51115
+[INFO] [2016-12-14] [18:30:31] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:31] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:51116
+[INFO] [2016-12-14] [18:30:31] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:31] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:51117
+[INFO] [2016-12-14] [18:30:31] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:31] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:51118
+[INFO] [2016-12-14] [18:30:31] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:42] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:51119
+[INFO] [2016-12-14] [18:30:42] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:42] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:51120
+[INFO] [2016-12-14] [18:30:42] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:42] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:51121
+[INFO] [2016-12-14] [18:30:42] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:42] UDPConnection.run UDP query google.com. 0 IN A from /0:0:0:0:0:0:0:1:51122
+[INFO] [2016-12-14] [18:30:42] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:30:42] UDPConnection.run UDP query google.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:51123
+[INFO] [2016-12-14] [18:30:42] EagleDNS.generateReply Got no response from resolvers for query google.com. 0 IN AAAA sending default response NXDOMAIN
+[FATAL] [2016-12-14] [18:41:05] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Zone provider Default file zone provider (se.unlogic.eagledns.zoneproviders.file.FileZoneProvider) successfully initialized!
+[INFO] [2016-12-14] [18:41:06] EagleDNS.reloadZones Getting primary zones from zone provider Default file zone provider
+[ERROR] [2016-12-14] [18:41:06] FileZoneProvider.getPrimaryZones Unable to parse zone file zones\zone1 in FileZoneProvider Default file zone provider
+java.io.IOException: SOA owner example.com. does not match zone origin zone1.
+	at org.xbill.DNS.Zone.maybeAddRecord(Zone.java:119)
+	at org.xbill.DNS.Zone.<init>(Zone.java:144)
+	at se.unlogic.eagledns.zoneproviders.file.FileZoneProvider.getPrimaryZones(FileZoneProvider.java:142)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS.<init>(EagleDNS.java:407)
+	at se.unlogic.eagledns.EagleDNS.main(EagleDNS.java:1120)
+[INFO] [2016-12-14] [18:41:06] EagleDNS.reloadZones Getting secondary zones from zone provider Default file zone provider
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-14] [18:41:06] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:41:06] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file C:\Users\bbelaj\git\P2P-Eagle-DNS\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:41:06] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-14] [18:41:06] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-14] [18:41:06] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-14] [18:41:06] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-14] [18:41:06] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 0 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[INFO] [2016-12-14] [18:41:50] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:55081
+[INFO] [2016-12-14] [18:41:50] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:41:50] UDPConnection.run UDP query example.com. 0 IN A from /0:0:0:0:0:0:0:1:55082
+[INFO] [2016-12-14] [18:41:50] EagleDNS.generateReply Got no response from resolvers for query example.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:41:50] UDPConnection.run UDP query example.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:55083
+[INFO] [2016-12-14] [18:41:50] EagleDNS.generateReply Got no response from resolvers for query example.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:41:50] UDPConnection.run UDP query example.com. 0 IN A from /0:0:0:0:0:0:0:1:55084
+[INFO] [2016-12-14] [18:41:50] EagleDNS.generateReply Got no response from resolvers for query example.com. 0 IN A sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:41:50] UDPConnection.run UDP query example.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:55085
+[INFO] [2016-12-14] [18:41:50] EagleDNS.generateReply Got no response from resolvers for query example.com. 0 IN AAAA sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:42:11] FileZoneProvider.run Changes in directory zones detected
+[INFO] [2016-12-14] [18:42:11] EagleDNS.reloadZones Getting primary zones from zone provider Default file zone provider
+[ERROR] [2016-12-14] [18:42:11] FileZoneProvider.getPrimaryZones Unable to parse zone file zones\example in FileZoneProvider Default file zone provider
+java.io.IOException: SOA owner example.com. does not match zone origin example.
+	at org.xbill.DNS.Zone.maybeAddRecord(Zone.java:119)
+	at org.xbill.DNS.Zone.<init>(Zone.java:144)
+	at se.unlogic.eagledns.zoneproviders.file.FileZoneProvider.getPrimaryZones(FileZoneProvider.java:142)
+	at se.unlogic.eagledns.EagleDNS.reloadZones(EagleDNS.java:805)
+	at se.unlogic.eagledns.EagleDNS$1.zoneDataChanged(EagleDNS.java:366)
+	at se.unlogic.eagledns.zoneproviders.file.FileZoneProvider.run(FileZoneProvider.java:73)
+	at se.unlogic.standardutils.timer.RunnableTimerTask.run(RunnableTimerTask.java:23)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+[INFO] [2016-12-14] [18:42:11] EagleDNS.reloadZones Getting secondary zones from zone provider Default file zone provider
+[FATAL] [2016-12-14] [18:49:16] EagleDNS.<init> Eagle DNS 1.1.2.unknown starting...
+[INFO] [2016-12-14] [18:49:16] EagleDNS.<init> Zone provider Default file zone provider (se.unlogic.eagledns.zoneproviders.file.FileZoneProvider) successfully initialized!
+[INFO] [2016-12-14] [18:49:16] EagleDNS.reloadZones Getting primary zones from zone provider Default file zone provider
+[INFO] [2016-12-14] [18:49:16] EagleDNS.reloadZones Got zone example.com.
+[INFO] [2016-12-14] [18:49:16] EagleDNS.reloadZones Getting secondary zones from zone provider Default file zone provider
+[INFO] [2016-12-14] [18:49:16] EagleDNS.<init> Resovler Authoritative resolver (se.unlogic.eagledns.resolvers.AuthoritativeResolver) successfully initialized!
+[INFO] [2016-12-14] [18:49:16] RMIRemoteManagementPlugin.init Plugin RMI remote management starting RMI remote management interface on port 5353
+[INFO] [2016-12-14] [18:49:17] EagleDNS.<init> Plugin RMI remote management (se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:49:17] QueryStatsPlugin.init Plugin Query statistics reading previously saved statistics from file C:\Users\bbelaj\git\P2P-Eagle-DNS\EagleDNS\logs\querystats.xml
+[INFO] [2016-12-14] [18:49:17] EagleDNS.<init> Plugin Query statistics (se.unlogic.eagledns.plugins.QueryStatsPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:49:18] ReplicationServerPlugin.init Plugin RMI zone replication server started with RMI interface on port 5000
+[INFO] [2016-12-14] [18:49:18] EagleDNS.<init> Plugin RMI zone replication server (se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin) successfully initialized!
+[INFO] [2016-12-14] [18:49:18] EagleDNS.<init> Initializing TCP thread pool...
+[INFO] [2016-12-14] [18:49:18] EagleDNS.<init> Initializing UDP thread pool...
+[INFO] [2016-12-14] [18:49:18] UDPSocketMonitor.run Starting UDP socket monitor on address 0.0.0.0:53
+[INFO] [2016-12-14] [18:49:18] EagleDNS.<init> Starting secondary zone update timer...
+[INFO] [2016-12-14] [18:49:18] TCPSocketMonitor.run Starting TCP socket monitor on address 0.0.0.0:53
+[FATAL] [2016-12-14] [18:49:18] EagleDNS.<init> Eagle DNS 1.1.2.unknown started with 1 primary zones and 0 secondary zones, 1 Zone providers and 1 resolvers
+[INFO] [2016-12-14] [18:49:49] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:61213
+[INFO] [2016-12-14] [18:49:49] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:49:49] UDPConnection.run UDP query example.com. 0 IN A from /0:0:0:0:0:0:0:1:61214
+[INFO] [2016-12-14] [18:49:49] UDPConnection.run UDP query example.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:61215
+[INFO] [2016-12-14] [18:51:26] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:57055
+[INFO] [2016-12-14] [18:51:26] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:51:26] UDPConnection.run UDP query www.example.com. 0 IN A from /0:0:0:0:0:0:0:1:57056
+[INFO] [2016-12-14] [18:51:26] UDPConnection.run UDP query www.example.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:57057
+[INFO] [2016-12-14] [18:54:22] UDPConnection.run UDP query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR from /0:0:0:0:0:0:0:1:57905
+[INFO] [2016-12-14] [18:54:22] EagleDNS.generateReply Got no response from resolvers for query 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa. 0 IN PTR sending default response NXDOMAIN
+[INFO] [2016-12-14] [18:54:22] UDPConnection.run UDP query example.com. 0 IN A from /0:0:0:0:0:0:0:1:57906
+[INFO] [2016-12-14] [18:54:22] UDPConnection.run UDP query example.com. 0 IN AAAA from /0:0:0:0:0:0:0:1:57907

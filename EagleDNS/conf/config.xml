@@ -16,7 +16,7 @@
 	</System>
 	
 	<ZoneProviders>
-<!-- 		<ZoneProvider>
+		<ZoneProvider>
 			<Name>Default file zone provider</Name>
 			<Class>se.unlogic.eagledns.zoneproviders.file.FileZoneProvider</Class>
 			<Properties>
@@ -24,21 +24,21 @@
 				<Property name="autoReloadZones">true</Property>
 				<Property name="pollingInterval">10</Property>
 			</Properties>
-		</ZoneProvider> -->
+		</ZoneProvider> 
 		
 		<!-- Uncomment the block below if you wish to read you zones from DB -->
 		
 		
-		<ZoneProvider>
-			<Name>Default DB zone provider</Name>
-			<Class>se.unlogic.eagledns.zoneproviders.db.DBZoneProvider</Class>
-			<Properties>
-				<Property name="driver">com.mysql.jdbc.Driver</Property>
-				<Property name="username">root</Property>
-				<Property name="password">root</Property>
-				<Property name="url">jdbc:mysql://localhost:3306/eagledns</Property>
-			</Properties>
-		</ZoneProvider>		
+<!-- 		<ZoneProvider> -->
+<!-- 			<Name>Default DB zone provider</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.zoneproviders.db.DBZoneProvider</Class> -->
+<!-- 			<Properties> -->
+<!-- 				<Property name="driver">com.mysql.jdbc.Driver</Property> -->
+<!-- 				<Property name="username">root</Property> -->
+<!-- 				<Property name="password">root</Property> -->
+<!-- 				<Property name="url">jdbc:mysql://localhost:3306/eagledns</Property> -->
+<!-- 			</Properties> -->
+<!-- 		</ZoneProvider>		 -->
 		
 	</ZoneProviders>
 	
