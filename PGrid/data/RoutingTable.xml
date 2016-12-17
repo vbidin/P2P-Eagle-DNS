@@ -1,6 +1,0 @@
-<RoutingTable>
-	<Host GUID="F8FFF9F25537BAD7D42A486367E83F594FD89A9B" Address="Vedran-PC.lan" Port="1234" Path="" Timestamp="1481606325861"/>
-	<Fidgets>
-		<Host GUID="F8FFF9F25537BAD7D42A486367E83F594FD89A9B" Address="Vedran-PC.lan" Port="1234" Path="" Timestamp="1481606325861"/>
-	</Fidgets>
-</RoutingTable>

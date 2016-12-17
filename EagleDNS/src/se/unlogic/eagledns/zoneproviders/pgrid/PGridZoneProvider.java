@@ -10,8 +10,6 @@ import java.util.Properties;
 import org.xbill.DNS.Zone;
 
 import p2p.basic.GUID;
-import p2p.basic.Key;
-import p2p.basic.Message;
 import p2p.basic.P2P;
 import p2p.basic.P2PFactory;
 import p2p.basic.Peer;
@@ -29,7 +27,6 @@ import se.unlogic.eagledns.SecondaryZone;
 import se.unlogic.eagledns.SystemInterface;
 import se.unlogic.eagledns.zoneproviders.ZoneProvider;
 import test.SimpleTypeHandler;
-import test.WaitingArea;
 
 public class PGridZoneProvider implements ZoneProvider, SearchListener {
 

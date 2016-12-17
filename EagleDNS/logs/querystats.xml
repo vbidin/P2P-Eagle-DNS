@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Statistics>
-<TCPQueryCount>0</TCPQueryCount>
-<UDPQueryCount>34</UDPQueryCount>
-<RejectedTCPConnections>0</RejectedTCPConnections>
-<RejectedUDPConnections>0</RejectedUDPConnections>
-</Statistics>
