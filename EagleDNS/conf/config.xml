@@ -17,22 +17,22 @@
 	
 	<ZoneProviders>
 	
-		<ZoneProvider>
-			<Name>P-Grid zone provider</Name>
-			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class>
-			<Properties>
-			</Properties>
-		</ZoneProvider>
-	
 <!-- 		<ZoneProvider> -->
-<!-- 			<Name>Default file zone provider</Name> -->
-<!-- 			<Class>se.unlogic.eagledns.zoneproviders.file.FileZoneProvider</Class> -->
+<!-- 			<Name>P-Grid zone provider</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class> -->
 <!-- 			<Properties> -->
-<!-- 				<Property name="zoneFileDirectory">zones</Property> -->
-<!-- 				<Property name="autoReloadZones">true</Property> -->
-<!-- 				<Property name="pollingInterval">10</Property> -->
 <!-- 			</Properties> -->
-<!-- 		</ZoneProvider>  -->
+<!-- 		</ZoneProvider> -->
+	
+		<ZoneProvider>
+			<Name>Default file zone provider</Name>
+			<Class>se.unlogic.eagledns.zoneproviders.file.FileZoneProvider</Class>
+			<Properties>
+				<Property name="zoneFileDirectory">zones</Property>
+				<Property name="autoReloadZones">true</Property>
+				<Property name="pollingInterval">10</Property>
+			</Properties>
+		</ZoneProvider> 
 		
 		<!-- Uncomment the block below if you wish to read you zones from DB -->
 		
@@ -88,19 +88,14 @@
 	
 	<Plugins>
 		<!-- RMI based remote management plugin needed for the info, reload and stop scripts to work -->
-		<Plugin>
-			<Name>RMI remote management</Name>
-			<Class>se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin</Class>
-			<Properties>
-				<Property name="password">secret</Property>
-				<Property name="port">5353</Property>
-				
-				<!-- Sets the java.rmi.server.hostname used for RMI clients -->
-				<!--
-				<Property name="RMIServerHostname">host or IP goes here</Property>
-				-->	
-			</Properties>
-		</Plugin>
+<!-- 		<Plugin> -->
+<!-- 			<Name>RMI remote management</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.plugins.remotemanagement.RMIRemoteManagementPlugin</Class> -->
+<!-- 			<Properties> -->
+<!-- 				<Property name="password">secret</Property> -->
+<!-- 				<Property name="port">5353</Property>	 -->
+<!-- 			</Properties> -->
+<!-- 		</Plugin> -->
 		
 		<!-- This is a new plugin that keeps track of the number of queries handled -->
 		<Plugin>
@@ -116,25 +111,17 @@
 		</Plugin>
 		
 		<!-- RMI based zone replication plugin (server) -->
-		<Plugin>
-			<Name>RMI zone replication server</Name>
-			<Class>se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin</Class>
-			<Properties>
-				<!-- RMI properties -->
-				<Property name="rmiPassword">secret</Property>
-				<Property name="rmiPort">5000</Property>
-				
-				<!-- Sets the java.rmi.server.hostname used for RMI clients -->
-				<!--
-				<Property name="RMIServerHostname">host or IP goes here</Property>
-				-->				
-				
-				<!-- JDBC properties -->
-				<Property name="driver">com.mysql.jdbc.Driver</Property>
-				<Property name="username">root</Property>
-				<Property name="password">root</Property>
-				<Property name="url">jdbc:mysql://localhost:3306/eagledns</Property>				
-			</Properties>
-		</Plugin>		
+<!-- 		<Plugin> -->
+<!-- 			<Name>RMI zone replication server</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.plugins.zonereplicator.ReplicationServerPlugin</Class> -->
+<!-- 			<Properties> -->
+<!-- 				<Property name="rmiPassword">secret</Property> -->
+<!-- 				<Property name="rmiPort">5000</Property>				 -->
+<!-- 				<Property name="driver">com.mysql.jdbc.Driver</Property> -->
+<!-- 				<Property name="username">root</Property> -->
+<!-- 				<Property name="password">root</Property> -->
+<!-- 				<Property name="url">jdbc:mysql://localhost:3306/eagledns</Property>				 -->
+<!-- 			</Properties> -->
+<!-- 		</Plugin>		 -->
 	</Plugins>			
 </Config>
