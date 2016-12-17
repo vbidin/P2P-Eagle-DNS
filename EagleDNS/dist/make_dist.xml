@@ -19,7 +19,7 @@
     	<copy file="../lib/p-grid.jar" todir="eagledns/lib/"/>
     	<copy file="../lib/hsqldb-1.8.0.10.jar" todir="eagledns/lib/"/>
     	
-    	<delete file="eagledns/config/config.xml"/>
+    	<delete file="eagledns/conf/config.xml"/>
     	<copy file="../conf/config.xml" todir="eagledns/conf/"/>
     	
     	<delete file="eagledns/docs/notice.txt"/>

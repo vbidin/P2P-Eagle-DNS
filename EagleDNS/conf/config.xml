@@ -1,6 +1,6 @@
 <Config>
 	<System>
-		<Port>53</Port>
+		<Port>1000</Port>
 		<TCPThreadPoolMinSize>5</TCPThreadPoolMinSize>
 		<TCPThreadPoolMaxSize>20</TCPThreadPoolMaxSize>
 		<TCPThreadPoolShutdownTimeout>60</TCPThreadPoolShutdownTimeout>
