@@ -86,7 +86,7 @@ public class EagleDNS implements Runnable, SystemInterface {
 
 		} catch (Exception e) {
 
-			tempVersion = VERSION_PREFIX + ".unknown";
+			tempVersion = VERSION_PREFIX + ".p2p";
 		}
 
 		VERSION = tempVersion;

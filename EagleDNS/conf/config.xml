@@ -1,6 +1,6 @@
 <Config>
 	<System>
-		<Port>1000</Port>
+		<Port>53</Port>
 		<TCPThreadPoolMinSize>5</TCPThreadPoolMinSize>
 		<TCPThreadPoolMaxSize>20</TCPThreadPoolMaxSize>
 		<TCPThreadPoolShutdownTimeout>60</TCPThreadPoolShutdownTimeout>
@@ -17,22 +17,22 @@
 	
 	<ZoneProviders>
 	
-<!-- 		<ZoneProvider> -->
-<!-- 			<Name>P-Grid zone provider</Name> -->
-<!-- 			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class> -->
-<!-- 			<Properties> -->
-<!-- 			</Properties> -->
-<!-- 		</ZoneProvider> -->
-	
 		<ZoneProvider>
-			<Name>Default file zone provider</Name>
-			<Class>se.unlogic.eagledns.zoneproviders.file.FileZoneProvider</Class>
+			<Name>P-Grid zone provider</Name>
+			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class>
 			<Properties>
-				<Property name="zoneFileDirectory">zones</Property>
-				<Property name="autoReloadZones">true</Property>
-				<Property name="pollingInterval">10</Property>
 			</Properties>
-		</ZoneProvider> 
+		</ZoneProvider>
+	
+<!-- 		<ZoneProvider> -->
+<!-- 			<Name>File zone provider</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.zoneproviders.file.FileZoneProvider</Class> -->
+<!-- 			<Properties> -->
+<!-- 				<Property name="zoneFileDirectory">zones</Property> -->
+<!-- 				<Property name="autoReloadZones">true</Property> -->
+<!-- 				<Property name="pollingInterval">10</Property> -->
+<!-- 			</Properties> -->
+<!-- 		</ZoneProvider>  -->
 		
 		<!-- Uncomment the block below if you wish to read you zones from DB -->
 		
@@ -54,11 +54,6 @@
 		<Resolver>
 			<Name>Authoritative resolver</Name>
 			<Class>se.unlogic.eagledns.resolvers.AuthoritativeResolver</Class>
-		</Resolver>
-		
-		<Resolver>
-			<Name>P-Grid resolver</Name>
-			<Class>se.unlogic.eagledns.resolvers.PGridResolver</Class>
 		</Resolver>
 		
 		<!-- Uncomment the block below to enable a forwarding resolver with failover enabled -->
