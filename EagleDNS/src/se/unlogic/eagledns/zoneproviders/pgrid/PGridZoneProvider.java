@@ -1,5 +1,6 @@
 package se.unlogic.eagledns.zoneproviders.pgrid;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -18,6 +19,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
 import org.xbill.DNS.Name;
+import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Zone;
 import org.xml.sax.SAXException;
 
@@ -44,6 +46,8 @@ import test.SimpleTypeHandler;
 public class PGridZoneProvider implements ZoneProvider, SearchListener {
 
 	private final Logger log = Logger.getLogger(this.getClass());
+	private String name;
+	private Collection<Zone> zones;
 	
 	private Properties properties;
 	private P2PFactory p2pFactory;
@@ -53,9 +57,9 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	private Storage storage;
 	private Type type;
 	private TypeHandler handler;
-	private Collection<Zone> zones;
 
 	public void init(String name) throws Exception {
+		this.name = name;
 		properties = createProperties();
 		p2pFactory = PGridP2PFactory.sharedInstance();
 		p2p = p2pFactory.createP2P(properties);
@@ -67,16 +71,17 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 		type = storageFactory.createType("SimpleType");
 		handler = new SimpleTypeHandler(type);
 		storageFactory.registerTypeHandler(type, handler);
+		insertZones();
 	}
 
 	public Collection<Zone> getPrimaryZones() {
 		zones = new ArrayList<Zone>();
-		Query query = storageFactory.createQuery(type, "");
+		Query query = storageFactory.createQuery(type, "a", "z");
 		storage.search(query, this);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(1000 * 5);
 		} catch (InterruptedException e) {}
-		System.out.println("Found " + zones.size() + " zones.");
+		System.out.println("P-Grid zone provider found " + zones.size() + " zones.");
 		if (zones.isEmpty() == false)
 			return zones;
 		return null;
@@ -98,8 +103,8 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	public void newSearchResult(GUID guid, Collection results) {
 		for (Iterator it = results.iterator(); it.hasNext();) {
 			DataItem item = (DataItem) it.next();
-			System.out.println("Found item: ");
 			String data = (String)item.getData();
+			System.out.println("Found item: " + data);
 			String first = data.split("\n")[0];
 			String name = first.split("\t")[0];
 			name = name.substring(0, name.length());
@@ -118,7 +123,6 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	}
 
 	public void noResultsFound(GUID guid) {
-		System.out.println("No results found for search.");
 	}
 
 	public void searchFailed(GUID guid) {
@@ -126,25 +130,58 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	}
 
 	public void searchFinished(GUID guid) {
-		System.out.println("Search finished.");
 	}
 
 	public void searchStarted(GUID guid, String message) {
-		System.out.println("Search started.");
 	}
 
-	public Properties createProperties() throws IOException, SAXException, ParserConfigurationException {
+	private Properties createProperties() throws IOException, SAXException, ParserConfigurationException {
 		Properties properties = new Properties();
-		properties.setProperty(PGridP2P.PROP_LOCAL_PORT, String.valueOf(1337));
+		properties.setProperty(PGridP2P.PROP_LOCAL_PORT, String.valueOf(getPort()));
 		properties.setProperty(PGridP2P.PROP_DEBUG_LEVEL, "0");
 		properties.setProperty(PGridP2P.PROP_VERBOSE_MODE, "false");
 		return properties;
 	}
 
-	public Peer createBootstrapHost() throws UnknownHostException {
+	private Peer createBootstrapHost() throws UnknownHostException {
 		InetAddress ip = InetAddress.getByName("localhost");
 		int port = 1805;
 		return p2pFactory.createPeer(ip, port);
+	}
+	
+	// inserts local zones into the p-grid network
+	private void insertZones() {
+		File zoneDir = new File("zones");
+		File[] files = zoneDir.listFiles();
+
+		Collection<Zone> zones = new ArrayList<Zone>(files.length);
+		for (File zoneFile : files) {
+			if (!zoneFile.canRead()) {
+				log.error("PGridZoneProvider " + name + " unable to access zone file " + zoneFile);
+				continue;
+			}
+			Name origin;
+			try {
+				origin = Name.fromString(zoneFile.getName(), Name.root);
+				Zone zone = new Zone(origin, zoneFile.getPath());
+				log.debug("PGridZoneProvider " + name + " successfully parsed zone file " + zoneFile.getName());
+				zones.add(zone);
+			} catch (TextParseException e) {
+				log.error("PGridZoneProvider " + name + " unable to parse zone file " + zoneFile.getName(), e);
+			} catch (IOException e) {
+				log.error("Unable to parse zone file " + zoneFile + " in FileZoneProvider " + name, e);
+			}
+		}
+		
+		Collection<DataItem> items = new ArrayList<DataItem>();
+		for (Zone zone : zones) {
+			DataItem item = handler.createDataItem(zone);
+			items.add(item);
+		}
+	
+		System.out.println("P-Grid zone provider inserting " + items.size() + " zones into network...");
+		storage.insert(items);
+		((PGridP2P)p2p).setInitExchanges(true);
 	}
 	
 	private String getPort() throws SAXException, IOException, ParserConfigurationException {

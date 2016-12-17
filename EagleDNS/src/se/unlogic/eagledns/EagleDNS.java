@@ -77,7 +77,7 @@ public class EagleDNS implements Runnable, SystemInterface {
 	
 	public static final String VERSION;
 
-	static{
+	static {
 
 		String tempVersion;
 
