@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Timer;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -39,16 +40,22 @@ import pgrid.interfaces.basic.PGridP2PFactory;
 import pgrid.interfaces.storage.PGridStorageFactory;
 import se.unlogic.eagledns.SecondaryZone;
 import se.unlogic.eagledns.SystemInterface;
+import se.unlogic.eagledns.ZoneChangeCallback;
+import se.unlogic.eagledns.ZoneProviderUpdatable;
 import se.unlogic.eagledns.zoneproviders.ZoneProvider;
+import se.unlogic.standardutils.time.MillisecondTimeUnits;
+import se.unlogic.standardutils.timer.RunnableTimerTask;
 import se.unlogic.standardutils.xml.XMLParser;
 import test.SimpleTypeHandler;
 
-public class PGridZoneProvider implements ZoneProvider, SearchListener {
+public class PGridZoneProvider implements ZoneProvider, ZoneProviderUpdatable, SearchListener, Runnable {
 
 	private final Logger log = Logger.getLogger(this.getClass());
 	private String name;
 	private Collection<Zone> zones;
-	
+	private ZoneChangeCallback zoneChangeCallback;
+	private Timer watcher;
+
 	private Properties properties;
 	private P2PFactory p2pFactory;
 	private StorageFactory storageFactory;
@@ -72,6 +79,13 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 		handler = new SimpleTypeHandler(type);
 		storageFactory.registerTypeHandler(type, handler);
 		insertZones();
+	
+		watcher = new Timer(true);
+		watcher.schedule(new RunnableTimerTask(this), 5000, 5000);
+	}	
+
+	public void run() {
+		zoneChangeCallback.zoneDataChanged();
 	}
 
 	public Collection<Zone> getPrimaryZones() {
@@ -79,9 +93,13 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 		Query query = storageFactory.createQuery(type, "a", "z");
 		storage.search(query, this);
 		try {
-			Thread.sleep(1000 * 5);
-		} catch (InterruptedException e) {}
-		System.out.println("P-Grid zone provider found " + zones.size() + " zones.");
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+		}
+		log.info("P-Grid zone provider found " + zones.size() + " zones.");
+		for (Zone zone : zones) {
+			log.info(zone.getOrigin());
+		}
 		if (zones.isEmpty() == false)
 			return zones;
 		return null;
@@ -103,12 +121,12 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	public void newSearchResult(GUID guid, Collection results) {
 		for (Iterator it = results.iterator(); it.hasNext();) {
 			DataItem item = (DataItem) it.next();
-			String data = (String)item.getData();
-			System.out.println("Found item: " + data);
+			String data = (String) item.getData();
+			log.info("Found item: " + data);
 			String first = data.split("\n")[0];
 			String name = first.split("\t")[0];
 			name = name.substring(0, name.length());
-			
+
 			Path file = Paths.get("temp.txt");
 			List<String> lines = Arrays.asList(data);
 			Charset charset = Charset.forName("UTF-8");
@@ -123,16 +141,19 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	}
 
 	public void noResultsFound(GUID guid) {
+		log.info("No results found.");
 	}
 
 	public void searchFailed(GUID guid) {
-		System.out.println("Search failed.");
+		log.info("Search failed.");
 	}
 
 	public void searchFinished(GUID guid) {
+		log.info("Search finished.");
 	}
 
 	public void searchStarted(GUID guid, String message) {
+		log.info("Search started.");
 	}
 
 	private Properties createProperties() throws IOException, SAXException, ParserConfigurationException {
@@ -148,7 +169,7 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 		int port = 1805;
 		return p2pFactory.createPeer(ip, port);
 	}
-	
+
 	// inserts local zones into the p-grid network
 	private void insertZones() {
 		File zoneDir = new File("zones");
@@ -172,18 +193,18 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 				log.error("Unable to parse zone file " + zoneFile + " in FileZoneProvider " + name, e);
 			}
 		}
-		
+
 		Collection<DataItem> items = new ArrayList<DataItem>();
 		for (Zone zone : zones) {
 			DataItem item = handler.createDataItem(zone);
 			items.add(item);
 		}
-	
-		System.out.println("P-Grid zone provider inserting " + items.size() + " zones into network...");
+
+		log.info("P-Grid zone provider inserting " + items.size() + " zones into network...");
 		storage.insert(items);
-		((PGridP2P)p2p).setInitExchanges(true);
+		((PGridP2P) p2p).setInitExchanges(true);
 	}
-	
+
 	private String getPort() throws SAXException, IOException, ParserConfigurationException {
 		XMLParser configFile;
 		configFile = new XMLParser("conf/config.xml");
@@ -192,5 +213,9 @@ public class PGridZoneProvider implements ZoneProvider, SearchListener {
 	}
 
 	public void setSystemInterface(SystemInterface systemInterface) {
+	}
+
+	public void setChangeListener(ZoneChangeCallback zoneChangeCallback) {
+		this.zoneChangeCallback = zoneChangeCallback;
 	}
 }
