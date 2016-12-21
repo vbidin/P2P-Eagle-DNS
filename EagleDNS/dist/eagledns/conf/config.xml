@@ -17,12 +17,12 @@
 	
 	<ZoneProviders>
 	
-		<ZoneProvider>
-			<Name>P-Grid zone provider</Name>
-			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class>
-			<Properties>
-			</Properties>
-		</ZoneProvider>
+<!-- 		<ZoneProvider> -->
+<!-- 			<Name>P-Grid zone provider</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.zoneproviders.pgrid.PGridZoneProvider</Class> -->
+<!-- 			<Properties> -->
+<!-- 			</Properties> -->
+<!-- 		</ZoneProvider> -->
 	
 <!-- 		<ZoneProvider> -->
 <!-- 			<Name>File zone provider</Name> -->
@@ -51,10 +51,16 @@
 	</ZoneProviders>
 	
 	<Resolvers>
+	
 		<Resolver>
-			<Name>Authoritative resolver</Name>
-			<Class>se.unlogic.eagledns.resolvers.AuthoritativeResolver</Class>
+			<Name>PGridResolver</Name>
+			<Class>se.unlogic.eagledns.resolvers.PGridResolver</Class>
 		</Resolver>
+		
+<!-- 		<Resolver> -->
+<!-- 			<Name>Authoritative resolver</Name> -->
+<!-- 			<Class>se.unlogic.eagledns.resolvers.AuthoritativeResolver</Class> -->
+<!-- 		</Resolver> -->
 		
 		<!-- Uncomment the block below to enable a forwarding resolver with failover enabled -->
 		
